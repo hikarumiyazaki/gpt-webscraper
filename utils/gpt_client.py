@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 
 import requests
@@ -38,4 +37,4 @@ class GptClient:
             response = requests.post(GPT_ENDPOINT, headers=headers, json=data)
             return response.json()["choices"][0]["message"]["content"]
         except Exception as error:
-            logging.error(f"{error=}")
+            print(f"{error=}")

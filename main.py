@@ -29,6 +29,9 @@ def google_search(search_word):
 
 def format_html(html_source):
     try:
+        if not re.search(r"<body.*?>.*?</body>", html_source, flags=re.DOTALL):
+            return None
+
         html_source = re.sub(r"<head.*?>.*?</head>", "", html_source, flags=re.DOTALL)
         html_source = re.sub(r"<ins.*?>.*?</ins>", "", html_source, flags=re.DOTALL)
         html_source = re.sub(
